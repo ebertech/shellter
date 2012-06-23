@@ -13,7 +13,10 @@ module Shellter
       @expected_outcodes ||= [0]
 
       @command = command
-      @arguments = arguments      
+      @arguments = arguments 
+      
+      @stdout = StringIO.new     
+      @stderr = StringIO.new     
     end
 
     def run(options = {})
@@ -22,10 +25,12 @@ module Shellter
           with_interpolated_command(options) do |command|
             @status = runner.run(command) do |stdout, stderr, stdin, pid|
               stdin.close
-              @stdout = stdout.read
-              @stderr = stderr.read
+              @stdout.write(stdout.read)
+              @stderr.write(stderr.read)
               @pid = pid
             end
+            @stderr.rewind
+            @stdout.rewind
           end
         end
       end
