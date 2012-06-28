@@ -1,5 +1,4 @@
 require 'escape'
-require 'popen4'
 
 require 'shellter/core_ext'
 
