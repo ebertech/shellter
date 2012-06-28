@@ -1,4 +1,4 @@
-require 'popen3'
+require 'open3'
 module Shellter
   module Runners
     class Windows < Base
