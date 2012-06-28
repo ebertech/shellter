@@ -1,3 +1,5 @@
+require 'popen4'
+
 module Shellter
   module Runners
     class Base
