@@ -10,6 +10,7 @@ module Shellter
   module Runners
     autoload :Background, "shellter/runners/background"
     autoload :Base, "shellter/runners/base"
+    autoload :Windows, "shellter/runners/windows"
   end
   
   extend ClassMethods
